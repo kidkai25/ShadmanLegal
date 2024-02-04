@@ -1,0 +1,90 @@
+﻿@model StampDutyDataModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="uploadDoc" enctype="multipart/form-data" class="form-inline">
+                <!-- Add a dropdown for selecting the state -->
+                <label for="stateDropdown" class="form-label">Select State:</label>
+                <select id="stateDropdown" name="stateName" class="form-select">
+                    
+                    
+                        @foreach (var state in Model.States)
+                        {
+                        <option value="@state.StateName">@state.StateName</option>
+                        }
+                    
+                </select>
+                <br />
+@*                 <label for="instrumentDropdown" class="form-label">Select Instrument:</label>
+                <select id="instrumentDropdown" name="instrumentName" class="form-select">
+
+                        @foreach (var instrument in Model.Instruments)
+                        {
+                            <option value="@instrument.InstrumentID">@instrument.InstrumentName</option>
+                        }
+                    
+                </select>
+                <br /> *@
+                <div class="mb-3">
+                    <label for="file" class="form-label">Choose Document File:</label>
+                    <input type="file" class="form-control" id="file" name="file" />
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div id="dataTableContainer" class="table-responsive">
+                <table id="dataTable" class="table table-striped table-bordered table-hover">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('#uploadDoc').submit(function (e) {
+            e.preventDefault();
+            // alert("hello uploading");
+
+            var formData = new FormData(this);
+            var selectedState = $('#stateDropdown').val();
+            formData.append('stateName', selectedState);
+            // Assuming your controller returns JSON in the correct format
+            $.ajax({
+                url: '@Url.Action("UploadDoc")',
+                method: 'POST',
+                processData: false,
+                data: formData,
+                contentType: false,
+                success: function (data) {
+                    // alert("hello");
+                    // debugger;
+                    // debugger;
+                    // var columns = Object.keys(data[0]).map(function (key) {
+                    //     return { data: key, title: key };
+                    // });
+
+                    // // $('#dataTableContainer').html('<table id="dataTable"></table>');
+                    // $('#dataTable').DataTable({
+                    //     data: data,
+                    //     columns: columns
+                    // });
+
+                    // $.ajax({
+                    //     url: '@Url.Action("Index")',
+                    //     method: 'GET',
+                    //     success: function (data) {
+                    //         alert("get");
+                    //         debugger;
+                    //     }
+                    // });
+                    window.location.href = '@Url.Action("Index")';
+                }
+            });
+        });
+    });
+</script>

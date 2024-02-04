@@ -20,3 +20,29 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-image: url('/Content/Images/1.jpg');
+    background-size: cover;
+    color:white;
+    /* Additional background properties if needed */
+}
+
+/*.container {
+    padding-top: 56px;*/ /* Adjust based on your header height */
+/*}*/
+
+header {
+    background-color: transparent; /* Set background-color to transparent if needed */
+}
+
+.container {
+    color: white;
+}
+
+fieldset{
+    margin-top: 10px;
+}
