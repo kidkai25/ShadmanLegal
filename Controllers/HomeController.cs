@@ -16,7 +16,7 @@ namespace ShadmanLegal.Controllers
         private readonly ILogger<HomeController> _logger;
         const string StorageConnectionString = "DefaultEndpointsProtocol=https;AccountName=kid;AccountKey=N5NfXOynClwidKft+B6B/owt3S/xAHwjd+xviI5Ty1szp3tgFWpHMPYoE1tz5WTFzrbQP8EHOlJv+AStaEmzGA==;EndpointSuffix=core.windows.net";
         const string ContainerName = "shadman";
-        const string DBStorageConnectionString = "Server=tcp:shadmanlegal.database.windows.net,1433;Initial Catalog=ShadmanLegal;Persist Security Info=False;User ID=adminshadmanlegal;Password=@K@qBiLjHaf8kwK;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        const string DBStorageConnectionString = "Server=tcp:shadmanlegal.database.windows.net,1433;Initial Catalog=ShadmanLegal;Persist Security Info=False;User ID=adminshadmanlegal;Password=A.z_lover11;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         private readonly DAL dAL = new DAL(DBStorageConnectionString);
 
         static HomeController()
